@@ -3,13 +3,13 @@ import { GraphQLClient, gql } from "graphql-request";
 
 const graphQLClient = new GraphQLClient("/api/graphql");
 
-const JoinMutation = gql`
+export const JoinMutation = gql`
   mutation Join($form: CreateUserInput!) {
     join(form: $form)
   }
 `
 
-const CheckIdQuery = gql`
+export const CheckIdQuery = gql`
   mutation CheckId($id: String!) {
     checkId(id: $id)
   }
