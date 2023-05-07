@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import type { NextPage } from "next";
-import { useQuery } from "react-query";
+import { useQuery } from "react-query";//server에서 데이터를 가져오는 훅
 import { GraphQLClient, gql } from "graphql-request";
 
 const inter = Inter({ subsets: ['latin'] })
