@@ -8,7 +8,8 @@ type InputProps = {
   register: UseFormRegister<JoinFormData>;
   required?: boolean;
   option?: RegisterOptions
-  error?: FieldError
+  error?: FieldError,
+  onClick: React.MouseEventHandler
 };
 
 const JoinInput = ({ 
@@ -17,6 +18,7 @@ const JoinInput = ({
   register, 
   error,
   required = false, 
+  onClick,
   option = {} 
 }: InputProps) => {
   return (
@@ -24,7 +26,7 @@ const JoinInput = ({
       <div className={styled.input}>
         <label>{ label }</label>
         <input className="text-black" {...register(name, { required, ...option })} />
-        <button className={styled.checkId}>중복확인</button>
+        <button onClick={onClick} className={styled.checkId}>중복확인</button>
       </div>
       { error && <div className={styled.error}>{error.message}</div> }
     </>
