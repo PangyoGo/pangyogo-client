@@ -1,5 +1,5 @@
 import { JoinFormData } from "@/components/join/JoinForm/JoinForm";
-import { UserInfo, LoginInfo } from "@/components/login/LoginForm/LoginForm";
+import { UserInfo, LoginFormData } from "@/components/login/LoginForm/LoginForm";
 import { CheckIdQuery, CheckIdResponse, JoinMutation, JoinResponse } from "@/services/api/join.api";
 import { LoginMutation, LoginResponse } from "@/services/api/login.api"  
 import { GraphQLClient } from "graphql-request";
@@ -17,7 +17,7 @@ export const resolvers = {
   Mutation: {
     user: (): UserInfo => ({ id: "hyo0", nickname: "하하호호" }),
 
-    login: ({id, password}: LoginInfo): Promise<LoginResponse> => (
+    login: ({id, password}: LoginFormData): Promise<LoginResponse> => (
       graphQLClient.request(LoginMutation, { id, password })
     ),
 

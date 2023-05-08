@@ -2,7 +2,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { useState } from "react";
 import styled from './login-form.module.css';
 
-export interface LoginInfo{
+export interface LoginFormData{
   id: string;
   password: string;
 }
@@ -14,24 +14,27 @@ export interface User {
   refeshToekn: string;
 }
 
-export type UserInfo = Pick<LoginInfo, 'id'> &{
+export type UserInfo = Pick<LoginFormData, 'id'> &{
   nickname: string;
 }
 
 export default function Login() {
   const auth = useAuth();
-  const [loginInfo, SetLoginInfo] = useState({
+  const [loginInfo, SetLoginFormData] = useState({
     id: "",
     password: "",
   });
   
   const handleInputValue = (key: string) => (e: any) => {
-    SetLoginInfo({ ...loginInfo, [key]: e.target.value });
+    SetLoginFormData({ ...loginInfo, [key]: e.target.value });
   };
 
   const loginRequestHandler = (e:any) => {
     e.preventDefault();
-    //const {id, password} = loginInfo;
+    const {id, password} = loginInfo;
+    if(!id || !password){
+      alert("아디와 비밀번호 모두 입력해주세요.")
+    }
     //console.log(id, password)
     auth.login(loginInfo)
   }

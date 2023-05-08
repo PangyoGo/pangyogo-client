@@ -1,4 +1,4 @@
-import { LoginInfo, User } from "@/components/login/LoginForm/LoginForm";
+import { LoginFormData, User } from "@/components/login/LoginForm/LoginForm";
 import { GraphQLClient, gql } from "graphql-request";
 
 const graphQLClient = new GraphQLClient("/api/graphql");
@@ -12,6 +12,6 @@ export type LoginResponse = {
     login: Boolean
 }
 
-export const login = ({ id, password }: LoginInfo): Promise<LoginResponse> => (
+export const login = ({ id, password }: LoginFormData): Promise<LoginResponse> => (
     graphQLClient.request(LoginMutation, { id, password })
 );
