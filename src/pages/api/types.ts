@@ -2,8 +2,10 @@ import { gql } from "graphql-request";
 
 export const typeDefs = gql`
 	type User {
-		id: ID
-		nickname: String
+		id: ID!
+		nickname: String!
+    accessToken: String!
+    refeshToekn: String!
   }
   
 	type Query {
@@ -11,7 +13,7 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    user(id:String, password:String): User
+    login(id:String, password:String): User
     join(form: CreateUserInput!): Boolean
     checkId(id: String): Boolean
   }

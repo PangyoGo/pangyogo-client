@@ -1,9 +1,11 @@
-import { LoginInfo, UserInfo } from "@/pages/login";
+import { LoginInfo, UserInfo } from "@/components/login/LoginForm/LoginForm";
 import { GraphQLClient, Variables, gql } from "graphql-request";
+import { useRouter } from "next/router";
 import { QueryClient, useMutation, useQuery, useQueryClient } from "react-query"
 
 
 export const useAuth = () => {
+  const router = useRouter();
   const queryClient = useQueryClient(); //store
   //get 이외
   //useMutation 호출할때 뮤테이션 타입의 함수를 반환해준다. 함수호출
