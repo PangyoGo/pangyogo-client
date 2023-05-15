@@ -16,11 +16,11 @@ export const resolvers = {
   Mutation: {
     user: (): UserInfo => ({ id: "hyo0", nickname: "하하호호" }),
 
-    join: ({ passwordChk, ...form }: JoinFormData): Promise<JoinResponse> => (
+    join: (_: any, { passwordChk, ...form }: JoinFormData): Promise<JoinResponse['join']> => (
       graphQLClient.request(JoinMutation, { form })
     ),
 
-    checkId: (id: string): Promise<CheckIdResponse> => (
+    checkId: (_: any, id: string): Promise<CheckIdResponse['checkId']> => (
       graphQLClient.request(CheckIdQuery, { id })
     )
   }
