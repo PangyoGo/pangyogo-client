@@ -79,7 +79,8 @@ const JoinForm = () => {
                 name={input} 
                 register={register} 
                 option={formValidation[input]} 
-                error={errors[input]} 
+                error={errors[input]}
+                type={input.includes('password') ? 'password' : 'text'}
                 required 
               />
             ))

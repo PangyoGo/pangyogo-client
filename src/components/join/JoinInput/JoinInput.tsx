@@ -7,8 +7,9 @@ type InputProps = {
   name: Path<JoinFormData>;
   register: UseFormRegister<JoinFormData>;
   required?: boolean;
-  option?: RegisterOptions
-  error?: FieldError
+  option?: RegisterOptions;
+  error?: FieldError;
+  type?: string
 };
 
 const JoinInput = ({ 
@@ -16,6 +17,7 @@ const JoinInput = ({
   name, 
   register, 
   error,
+  type = 'text',
   required = false, 
   option = {} 
 }: InputProps) => {
@@ -23,7 +25,7 @@ const JoinInput = ({
     <>
       <div className={styled.input}>
         <label>{ label }</label>
-        <input className="text-black" {...register(name, { required, ...option })} />
+        <input type={type} className="text-black" {...register(name, { required, ...option })} />
       </div>
       { error && <div className={styled.error}>{error.message}</div> }
     </>
