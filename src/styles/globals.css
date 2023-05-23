@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+input {
+  color: black;
+}
+
+html, body, #__next {
+  height: 100%;
+}

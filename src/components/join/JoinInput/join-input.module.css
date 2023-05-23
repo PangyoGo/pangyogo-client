@@ -1,0 +1,36 @@
+.input {
+  color: #6b6b6b;
+  font-size: 14px;
+  display: flex;
+}
+
+.input label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.input input {
+  flex: 1;
+  border: 1px solid rgb(221, 221, 221);
+  height: 40px;
+  transition: border 0.3s ease;
+  outline: none;
+  border-radius: 5px;
+}
+
+.input input:focus {
+  border: 1px solid rgb(129, 129, 129);
+}
+
+.error {
+  font-size: 13px;
+  color: rgb(240, 63, 64);
+  margin-top: -10px;
+}
+
+.checkId {
+  margin-left: 10px;
+  border: 1px solid rgb(129, 129, 129);
+  border-radius: 5px;
+  padding: 0 10px;
+}
